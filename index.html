@@ -4,31 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Personal Website</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/kaTeX@0.15.0/dist/katex.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/kaTeX@0.15.0/dist/katex.min.css" integrity="sha384-Mu0BRNn4uRNLcN/S6tN6XbPnAqkGlpzljCgX9C3PfhQf+fOV1YZ3z2dS7pORew13" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/fluid-js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f0f0f0;
+        }
+
+        .fluid-container {
+            width: 300px;
+            height: 300px;
+            background: #3498db;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to My Personal Website</h1>
-    </header>
-
-    <section>
-        <h2>Math Expression Example:</h2>
-        <p>
-            Below is an example of LaTeX rendered using KaTeX:
-        </p>
-        <p id="math-expression"></p>
-    </section>
-
-    <footer>
-        <p>Created with love and LaTeX!</p>
-    </footer>
+    <div class="fluid-container">
+        Fluid Animation
+    </div>
 
     <script>
-        // Rendering a LaTeX expression using KaTeX
-        const latex = `\\int_{a}^{b} x^2 \\, dx = \\frac{b^3}{3} - \\frac{a^3}{3}`;
-        katex.render(latex, document.getElementById("math-expression"));
+        // Initialize Fluid.js on the container
+        const container = document.querySelector('.fluid-container');
+        new Fluid(container, {
+            force: 2,        // The strength of the effect
+            friction: 0.05,  // The friction applied
+            density: 0.5     // The density of the fluid (lower = faster, higher = thicker)
+        });
     </script>
 </body>
 </html>
