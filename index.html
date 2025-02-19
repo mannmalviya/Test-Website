@@ -1,81 +1,93 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Personal Website</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #121212;
-            color: white;
-        }
-        header {
-            background: #1d1d1d;
-            padding: 50px 0;
-            text-align: center;
-        }
-        header h1 {
-            font-size: 48px;
-            margin: 0;
-        }
-        header p {
-            font-size: 18px;
-            margin-top: 10px;
-        }
-        section {
-            padding: 100px 20px;
-            text-align: center;
-        }
-        section h2 {
-            font-size: 36px;
-            margin-bottom: 30px;
-        }
-        .cta {
-            background-color: #3498db;
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 18px;
-        }
-        footer {
-            background: #1d1d1d;
-            padding: 20px;
-            text-align: center;
-        }
-        footer a {
-            color: white;
-            text-decoration: none;
-        }
-    </style>
-</head>
-<body>
+import Image from "next/image"
+import Link from "next/link"
+import { Github, Linkedin, Mail } from "lucide-react"
 
-    <header>
-        <h1>Mann Malviya</h1>
-        <p>student</p>
-    </header>
+export default function Home() {
+  return (
+    <div className="flex flex-col min-h-screen">
+      <header className="p-6 bg-gray-100">
+        <nav className="flex justify-between items-center max-w-4xl mx-auto">
+          <Link href="/" className="text-xl font-bold">
+            Mann Malviya
+          </Link>
+          <div className="space-x-4">
+            <Link href="#about" className="hover:underline">
+                Student at UCSC'26.
+            </Link>
+            <Link href="#projects" className="hover:underline">
+              Projects
+            </Link>
+            <Link href="#contact" className="hover:underline">
+              Contact
+            </Link>
+          </div>
+        </nav>
+      </header>
 
-    <section>
-        <h2>About Me</h2>
-        <p>Student at UCSC, I like bjj and chess.</p>
-        <a href="mailto:your-email@example.com" class="cta">Contact Me</a>
-    </section>
+      <main className="flex-grow">
+        <section className="py-20 text-center">
+          <Image
+            src="/placeholder.svg?height=150&width=150"
+            alt="Your Name"
+            width={150}
+            height={150}
+            className="rounded-full mx-auto mb-4"
+          />
+          <h1 className="text-4xl font-bold mb-2">Mann</h1>
+          <p className="text-xl text-gray-600">Student</p>
+        </section>
 
-    <section>
-        <h2>Skills</h2>
-        <p>C, Verilog</p>
-    </section>
+        <section id="about" className="py-20 bg-gray-100">
+          <div className="max-w-4xl mx-auto px-6">
+            <h2 className="text-3xl font-bold mb-6">About Me</h2>
+            <p className="text-lg text-gray-700">
+               I'm a 20yo student studying at UCSC(2026). I like coding, math & physics. I also practice martial arts(bjj and boxing) and like to lift and run. I also play Chess.
+            </p>
+          </div>
+        </section>
 
-    <footer>
-        <p>&copy; 2025 Mann Malviys. All rights reserved.</p>
-        <p><a href="https://github.com/yourusername" target="_blank">GitHub</a> | <a href="https://www.linkedin.com/in/yourname" target="_blank">LinkedIn</a></p>
-    </footer>
+        <section id="projects" className="py-20">
+          <div className="max-w-4xl mx-auto px-6">
+            <h2 className="text-3xl font-bold mb-6">My Projects</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {[1, 2, 3, 4].map((project) => (
+                <div key={project} className="border rounded-lg p-4">
+                  <h3 className="text-xl font-semibold mb-2">Project {project}</h3>
+                  <p className="text-gray-600 mb-4">A brief description of the project and its key features.</p>
+                  <Link href="#" className="text-blue-500 hover:underline">
+                    Learn more
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
 
-</body>
-</html>
+        <section id="contact" className="py-20 bg-gray-100">
+          <div className="max-w-4xl mx-auto px-6 text-center">
+            <h2 className="text-3xl font-bold mb-6">Get in Touch</h2>
+            <p className="text-lg text-gray-700 mb-6">
+              I'm always open to new opportunities and collaborations. Feel free to reach out!
+            </p>
+            <div className="flex justify-center space-x-4">
+              <a href="mailto:your.email@example.com" className="text-gray-700 hover:text-blue-500">
+                <Mail size={24} />
+              </a>
+              <a href="https://github.com/yourusername" className="text-gray-700 hover:text-blue-500">
+                <Github size={24} />
+              </a>
+              <a href="https://linkedin.com/in/yourusername" className="text-gray-700 hover:text-blue-500">
+                <Linkedin size={24} />
+              </a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer className="py-6 text-center bg-gray-200">
+        <p className="text-gray-600">&copy; {new Date().getFullYear()} Your Name. All rights reserved.</p>
+      </footer>
+    </div>
+  )
+}
 
