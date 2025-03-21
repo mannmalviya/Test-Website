@@ -21,6 +21,12 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        body.dark {
+            background-color: #1f2937;
+            color: #f9fafb;
         }
         
         a {
@@ -44,6 +50,11 @@
         header {
             padding: 1.5rem 1rem;
             border-bottom: 1px solid #e5e7eb;
+            transition: border-color 0.3s ease;
+        }
+        
+        body.dark header {
+            border-bottom-color: #374151;
         }
         
         .header-container {
@@ -64,6 +75,7 @@
         .nav-links {
             display: flex;
             gap: 1.5rem;
+            align-items: center;
         }
         
         .nav-link {
@@ -76,10 +88,68 @@
             color: #111827;
         }
         
+        body.dark .nav-link {
+            color: #9ca3af;
+        }
+        
+        body.dark .nav-link:hover {
+            color: #f9fafb;
+        }
+        
         .menu-button {
             background: none;
             border: none;
             cursor: pointer;
+            color: inherit;
+        }
+        
+        /* Theme toggle */
+        .theme-toggle {
+            background: none;
+            border: 1px solid #e5e7eb;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            color: #6b7280;
+            transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+            margin-left: 1rem;
+        }
+        
+        .theme-toggle:hover {
+            background-color: rgba(107, 114, 128, 0.1);
+            color: #111827;
+        }
+        
+        body.dark .theme-toggle {
+            border-color: #4b5563;
+        }
+        
+        body.dark .theme-toggle:hover {
+            background-color: rgba(249, 250, 251, 0.1);
+            color: #f9fafb;
+        }
+        
+        /* Mobile theme toggle */
+        #mobile-theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: none;
+        }
+        
+        #mobile-theme-toggle .theme-toggle {
+            background-color: #f3f4f6;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        body.dark #mobile-theme-toggle .theme-toggle {
+            background-color: #374151;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
         }
         
         /* Hero section */
@@ -106,6 +176,12 @@
             overflow: hidden;
             border: 1px solid #e5e7eb;
             flex-shrink: 0;
+            transition: border-color 0.3s ease, background-color 0.3s ease;
+        }
+        
+        body.dark .profile-picture {
+            background-color: #374151;
+            border-color: #4b5563;
         }
         
         .hero-text {
@@ -125,18 +201,33 @@
             font-weight: 500;
             color: #6b7280;
             margin-top: 0.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        body.dark .hero h2 {
+            color: #9ca3af;
         }
         
         .hero p {
             margin-top: 1.5rem;
             font-size: 1.25rem;
             color: #6b7280;
+            transition: color 0.3s ease;
+        }
+        
+        body.dark .hero p {
+            color: #9ca3af;
         }
         
         /* Content sections */
         .section {
             padding: 4rem 1rem;
             border-top: 1px solid #e5e7eb;
+            transition: border-color 0.3s ease;
+        }
+        
+        body.dark .section {
+            border-top-color: #374151;
         }
         
         .section-header {
@@ -163,6 +254,14 @@
             color: #111827;
         }
         
+        body.dark .view-all {
+            color: #9ca3af;
+        }
+        
+        body.dark .view-all:hover {
+            color: #f9fafb;
+        }
+        
         .arrow-icon {
             margin-left: 0.25rem;
         }
@@ -183,6 +282,11 @@
             font-size: 0.875rem;
             color: #6b7280;
             margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        body.dark .article-date {
+            color: #9ca3af;
         }
         
         .article-title {
@@ -193,6 +297,11 @@
         
         .article-description {
             color: #6b7280;
+            transition: color 0.3s ease;
+        }
+        
+        body.dark .article-description {
+            color: #9ca3af;
         }
         
         /* Notes grid */
@@ -206,11 +315,19 @@
             padding: 1rem;
             border: 1px solid #e5e7eb;
             border-radius: 0.5rem;
-            transition: background-color 0.2s;
+            transition: background-color 0.2s, border-color 0.3s ease;
         }
         
         .note-card:hover {
             background-color: #f9fafb;
+        }
+        
+        body.dark .note-card {
+            border-color: #374151;
+        }
+        
+        body.dark .note-card:hover {
+            background-color: #2d3748;
         }
         
         .note-title {
@@ -221,6 +338,11 @@
         .note-description {
             font-size: 0.875rem;
             color: #6b7280;
+            transition: color 0.3s ease;
+        }
+        
+        body.dark .note-description {
+            color: #9ca3af;
         }
         
         /* Footer */
@@ -228,6 +350,11 @@
             padding: 2rem 1rem;
             border-top: 1px solid #e5e7eb;
             margin-top: auto;
+            transition: border-color 0.3s ease;
+        }
+        
+        body.dark footer {
+            border-top-color: #374151;
         }
         
         .footer-container {
@@ -239,6 +366,11 @@
         .copyright {
             font-size: 0.875rem;
             color: #6b7280;
+            transition: color 0.3s ease;
+        }
+        
+        body.dark .copyright {
+            color: #9ca3af;
         }
         
         .social-links {
@@ -254,6 +386,14 @@
         
         .social-link:hover {
             color: #111827;
+        }
+        
+        body.dark .social-link {
+            color: #9ca3af;
+        }
+        
+        body.dark .social-link:hover {
+            color: #f9fafb;
         }
         
         /* Responsive */
@@ -287,29 +427,70 @@
                 width: 150px;
                 height: 150px;
             }
+            
+            #mobile-theme-toggle {
+                display: none !important;
+            }
+        }
+        
+        @media (max-width: 639px) {
+            #theme-toggle-container {
+                display: none;
+            }
+            
+            #mobile-theme-toggle {
+                display: block;
+            }
         }
     </style>
+    <!-- React and ReactDOM scripts -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <!-- Babel for JSX support -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 </head>
 <body>
     <header>
         <div class="container header-container">
-            <a href="/" class="site-title">Mann</a>
+            <a href="/" class="site-title">lvl12tensorboi</a>
             
             <nav>
                 <div class="nav-links">
                     <a href="/Blog" class="nav-link">Blog</a>
                     <a href="/notes" class="nav-link">Notes</a>
                     <a href="/about" class="nav-link">About</a>
+                    <!-- Theme toggle button container -->
+                    <div id="theme-toggle-container"></div>
                 </div>
             </nav>
             
-            <button class="menu-button">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="4" x2="20" y1="12" y2="12"></line>
-                    <line x1="4" x2="20" y1="6" y2="6"></line>
-                    <line x1="4" x2="20" y1="18" y2="18"></line>
-                </svg>
-            </button>
+            <div class="header-right" style="display: flex; align-items: center;">
+                <!-- Fallback toggle button for mobile -->
+                <button id="theme-toggle-fallback" class="theme-toggle" style="display: none; margin-right: 1rem;">
+                    <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                
+                <button class="menu-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="4" x2="20" y1="12" y2="12"></line>
+                        <line x1="4" x2="20" y1="6" y2="6"></line>
+                        <line x1="4" x2="20" y1="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -448,14 +629,70 @@
 
     <footer>
         <div class="max-w-3xl footer-container">
-            <p class="copyright">© 2024 Mann Malviya. All rights reserved.</p>
+            <p class="copyright">© 2025 Mann Malviya. All rights reserved.</p>
             
             <div class="social-links">
-                <a href="https://twitter.com" class="social-link">Twitter</a>
-                <a href="https://github.com" class="social-link">GitHub</a>
-                <a href="mailto:hello@example.com" class="social-link">Email</a>
+                <a href="mmalviya@ucsc.edu" class="social-link">Email</a>
+                <a href="https://github.com/mannmalviya" class="social-link">GitHub</a>
+                <a href="https://www.linkedin.com/in/mann-malviya-610765274/" class="social-link">LinkedIn</a>
+                <a href="https://hevy.com/user/zyzz7" class="social-link">Hevy</a>
+                <a href="https://www.chess.com/member/lvl12tensorboi" class="social-link">Chess</a>
             </div>
         </div>
     </footer>
+
+    <!-- Mobile theme toggle container -->
+    <div id="mobile-theme-toggle"></div>
+
+    <!-- Include our React script -->
+    <script type="text/babel" src="theme-toggle.js"></script>
+    
+    <!-- Fallback JavaScript for theme toggle in case React doesn't load -->
+    <script>
+        // Check if React loaded properly
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                // If the React component didn't render, show the fallback
+                if (!document.querySelector('#theme-toggle-container button') && 
+                    !document.querySelector('#mobile-theme-toggle button')) {
+                    const fallbackToggle = document.getElementById('theme-toggle-fallback');
+                    fallbackToggle.style.display = 'flex';
+                    
+                    // Set up the fallback toggle
+                    const moonIcon = document.getElementById('moon-icon');
+                    const sunIcon = document.getElementById('sun-icon');
+                    
+                    // Check for saved theme
+                    const savedTheme = localStorage.getItem('theme');
+                    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    const isDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
+                    
+                    // Apply initial theme
+                    if (isDark) {
+                        document.body.classList.add('dark');
+                        moonIcon.style.display = 'none';
+                        sunIcon.style.display = 'block';
+                    }
+                    
+                    // Toggle theme function
+                    fallbackToggle.addEventListener('click', function() {
+                        const isDarkMode = document.body.classList.contains('dark');
+                        
+                        if (isDarkMode) {
+                            document.body.classList.remove('dark');
+                            moonIcon.style.display = 'block';
+                            sunIcon.style.display = 'none';
+                            localStorage.setItem('theme', 'light');
+                        } else {
+                            document.body.classList.add('dark');
+                            moonIcon.style.display = 'none';
+                            sunIcon.style.display = 'block';
+                            localStorage.setItem('theme', 'dark');
+                        }
+                    });
+                }
+            }, 1000); // Wait 1 second to check if React rendered
+        });
+    </script>
 </body>
 </html>
